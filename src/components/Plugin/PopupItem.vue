@@ -20,8 +20,8 @@
       </component>
     </div>
 
-    <div ciao-vue-popup="footer">
-      <button ciao-vue-popup-button="info">
+    <div ciao-vue-popup="footer" v-if="createFooter">
+      <button ciao-vue-popup-button="info" v-if="item.accept">
         {{'Apply'}}
       </button>
     </div>
@@ -68,7 +68,14 @@ export default {
     },
     close() {
       this.$emit('close', this.item.uid)
-    }
+    },
+  },
+  computed: {
+    createFooter() {
+      if(this.item.accept) return true
+      if(this.item.footer) return true
+      return false
+    },
   },
   components: {
     'item-text': ItemText,

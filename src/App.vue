@@ -46,4 +46,8 @@ div#app
     overflow-y: auto
     .list-group-item
       cursor: pointer
+.example-container
+  padding: 20px 0
+  .mark-container
+    margin: 25px 0
 </style>

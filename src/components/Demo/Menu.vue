@@ -17,14 +17,10 @@ export default {
     return {
       menu: [
         {
-          label: 'Base',
+          label: 'Base usage',
           route: {
             name: 'base',
           },
-        },
-        {
-          label: 'Title and content',
-          anchor: 'title-and-content',
         },
         {
           label: 'Size',

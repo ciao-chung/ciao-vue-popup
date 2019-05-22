@@ -1,27 +1,52 @@
 <template>
   <div>
-    <h1>Base</h1>
+    <div class="example-container">
+      <h2>String</h2>
 
-    <div class="container">
-      <ExampleBase></ExampleBase>
+      <div class="mark-container">
+        <ExampleString></ExampleString>
+      </div>
+
+      <button class="btn btn-success btn-sm" @click="string">
+        popup
+      </button>
     </div>
 
-    <button class="btn btn-success btn-sm" @click="popup">
-      popup
-    </button>
+    <div class="example-container">
+      <h2>Title and content</h2>
+
+      <div class="mark-container">
+        <ExampleTitleAndContent></ExampleTitleAndContent>
+      </div>
+
+      <button class="btn btn-success btn-sm" @click="titleAndContent">
+        popup
+      </button>
+    </div>
+
+
+
   </div>
 </template>
 
 <script lang="babel" type="text/babel">
-import ExampleBase from '@/components/Demo/Base/Base.md'
+import ExampleString from '@/components/Demo/Base/String.md'
+import ExampleTitleAndContent from '@/components/Demo/Base/TitleAndContent.md'
 export default {
   methods: {
-    popup() {
+    string() {
       this.$popup('append', 'foobar')
+    },
+    titleAndContent() {
+      this.$popup('append', {
+        title: 'foo',
+        content: 'bar',
+      })
     },
   },
   components: {
-    ExampleBase,
+    ExampleString,
+    ExampleTitleAndContent,
   },
 }
 </script>

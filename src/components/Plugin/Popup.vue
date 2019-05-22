@@ -47,10 +47,13 @@ export default {
       if(typeof options == 'string') {
         return {
           uid: this.uid(),
-          text: options,
+          content: options,
           type: 'text',
         }
       }
+
+      if(!options.uid) options.uid = this.uid()
+      return options
     },
     close(uid) {
       if(!this.itemKeyValueModel[uid]) return
