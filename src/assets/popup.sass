@@ -1,0 +1,84 @@
+$popup-top-gap: 30px
+$popup-left-gap: 10px
+$desktop-max-width: 80vw
+$mobile-max-width: 80vw
+
+$white: white
+$blue: #3c8dbc
+$light-gray: #c4c4c4
+$main-color: #00c0ef
+$green: #00a65a
+$orange: #ff851b
+$light-red: #e26757
+
+*[ciao-vue-popup-button]
+  color: $white
+  padding: 5px 10px
+  outline: none
+  border: none
+  font-size: 14px
+  cursor: pointer
+  &:active, &:focus
+    border: none
+    outline: none
+  &[ciao-vue-popup-button="info"]
+    background-color: $blue
+
+div[ciao-vue-popup="main"]
+  position: fixed
+  top: 0
+  left: 0
+  width: 100vw
+  height: 100vh
+  overflow: auto
+  font-family: monospace
+  div[ciao-vue-popup="item-container"]
+    position: fixed
+    top: 20px
+
+    &>*[ciao-vue-popup="item"]
+      position: absolute
+      width: auto
+      min-width: 15vw
+      top: 30px
+      outline: none
+      background-color: $white
+      pointer-events: none
+      max-width: $desktop-max-width
+      box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.5)
+      border: 1px $light-gray solid
+      &[transparent]
+        box-shadow: none
+      @media (max-width: 767px)
+        max-width: $mobile-max-width
+      &:last-of-type
+        pointer-events: all
+        overflow-y: auto
+      @for $i from 1 through 10
+        &:nth-of-type(#{$i})
+          top: #{($i - 1)*$popup-top-gap}
+      div[ciao-vue-popup="header"]
+        padding: 5px 20px
+        color: $white
+        background-color: $main-color
+        display: flex
+        flex-wrap: nowrap
+        height: 24px
+        line-height: 24px
+        font-size: 18px
+        &>*
+          .close-icon
+            font-size: 24px
+            cursor: pointer
+            transition: all 0.3s ease
+            &:hover
+              transition: all 0.3s ease
+              color: darken($main-color, 15%)
+        .help
+        .title
+          text-align: center
+      div[ciao-vue-popup="body"]
+        padding: 5px 20px
+      div[ciao-vue-popup="footer"]
+        border-top: 1px $light-gray solid
+        padding: 10px 20px
