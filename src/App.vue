@@ -5,7 +5,7 @@
         <PartialMenu></PartialMenu>
       </div>
 
-      <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+      <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 page">
         <router-view/>
       </div>
     </div>
@@ -16,6 +16,8 @@
 
 <script>
 import Vue from 'vue'
+import Prismjs from 'prismjs'
+import PrismjsLoadLanguages from 'prismjs/components/index.js'
 import Popup from '@/components/Plugin/Installer.js'
 import PartialMenu from '@/components/Demo/Menu.vue'
 Vue.use(Popup)
@@ -35,8 +37,10 @@ div#app
   padding: 0
   &>.row
     margin: 0
-  .nav
-    padding: 0
+    &>.nav
+      padding: 0
+    &>.page
+      padding-top: 20px
   .nav-container
     height: 100vh
     overflow-y: auto
