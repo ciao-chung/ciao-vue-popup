@@ -20,7 +20,7 @@ import uuid from 'uuid'
 import _cloneDeep from 'lodash/cloneDeep'
 export default {
   props: {
-    options: {
+    config: {
       type: Object,
       default: () => null,
     },
@@ -28,14 +28,19 @@ export default {
   data() {
     return {
       items: [],
+      popupConfig: null,
     }
   },
   created() {
+    this.init()
     events.$on('append', this.append)
     events.$on('close', this.close)
     events.$on('closeAll', this.closeAll)
   },
   methods: {
+    init() {
+      console.warn('init', this.defaultConfig)
+    },
     uid() {
       return uuid.v4()
     },
@@ -65,6 +70,13 @@ export default {
     },
   },
   computed: {
+    defaultConfig() {
+      const config = !this.config ? {} : this.config
+      let result = {
+        defaultTitle: null,
+      }
+      return result
+    },
     itemKeyValueModel() {
       let result = {}
       for(const index in this.items) {
@@ -73,12 +85,6 @@ export default {
         result[item.uid] = item
       }
       return result
-    },
-    defaultOptions() {
-      if(this.options) return this.options
-      return {
-
-      }
     },
     hasAnyPopup() {
       return this.items.length > 0

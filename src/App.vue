@@ -10,7 +10,7 @@
       </div>
     </div>
 
-    <VuePopupPlugin/>
+    <VuePopupPlugin :config="config"/>
   </div>
 </template>
 
@@ -26,6 +26,13 @@ export default {
   name: 'App',
   components: {
     PartialMenu,
+  },
+  computed: {
+    config() {
+      return {
+        defaultTitle: 'Popup',
+      }
+    }
   },
 }
 </script>

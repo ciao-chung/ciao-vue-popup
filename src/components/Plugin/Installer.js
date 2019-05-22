@@ -5,10 +5,9 @@ class Installer {
   constructor() {
     this.isInstalled = false
   }
-  install(Vue, options) {
+  install(Vue) {
     if(this.isInstalled) return
     this.isInstalled = true
-
     Vue.component('VuePopupPlugin', Popup)
 
     Vue.prototype.$popup = (action, options) => {
