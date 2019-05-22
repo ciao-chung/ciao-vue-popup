@@ -47,13 +47,15 @@ export default {
       if(typeof options == 'string') {
         return {
           uid: this.uid(),
-          title: options,
+          text: options,
           type: 'text',
         }
       }
     },
-    close(name) {
-
+    close(uid) {
+      if(!this.itemKeyValueModel[uid]) return
+      const index = this.itemKeyValueModel[uid].index
+      this.$delete(this.items, index)
     },
     closeAll() {
 

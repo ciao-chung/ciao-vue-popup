@@ -1,5 +1,5 @@
 <template>
-  <div tabindex="0" ciao-vue-popup="item">
+  <div tabindex="0" ciao-vue-popup="item" @keyup.esc.stop="close">
     <div ciao-vue-popup="header">
       <div class="help"></div>
 
@@ -37,12 +37,15 @@ export default {
     },
   },
   mounted() {
-    this.itemInitTask()
+    this.init()
   },
   methods: {
-    itemInitTask() {
+    init() {
       $(this.$el).focus()
       this.setupItemStyle()
+      $(window).resize(() => {
+        this.setupItemStyle()
+      })
     },
     setupItemStyle() {
       this.$nextTick(() => {

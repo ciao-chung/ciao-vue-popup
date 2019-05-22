@@ -6,7 +6,7 @@ $mobile-max-width: 80vw
 $white: white
 $blue: #3c8dbc
 $light-gray: #c4c4c4
-$main-color: #00c0ef
+$main-color: #00b8e5
 $green: #00a65a
 $orange: #ff851b
 $light-red: #e26757
@@ -47,6 +47,8 @@ div[ciao-vue-popup="main"]
       max-width: $desktop-max-width
       box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.5)
       border: 1px $light-gray solid
+      &:focus
+        outline: none
       &[transparent]
         box-shadow: none
       @media (max-width: 767px)
@@ -78,7 +80,8 @@ div[ciao-vue-popup="main"]
         .title
           text-align: center
       div[ciao-vue-popup="body"]
-        padding: 5px 20px
+        padding: 30px 20px
+        font-size: 14px
       div[ciao-vue-popup="footer"]
         border-top: 1px $light-gray solid
         padding: 10px 20px

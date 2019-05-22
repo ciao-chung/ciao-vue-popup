@@ -1,6 +1,6 @@
 <template>
-  <div tabindex="0">
-    text - {{popupConfig}}
+  <div>
+    {{popupConfig.text}}
   </div>
 </template>
 
