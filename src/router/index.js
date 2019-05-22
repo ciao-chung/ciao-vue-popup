@@ -1,15 +1,15 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Demo from '@/components/Demo/Demo'
+import DemoBase from '@/components/Demo/Base/Base.vue'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
-      path: '/',
-      name: 'Demo',
-      component: Demo,
+      path: '/base',
+      name: 'base',
+      component: DemoBase,
     }
   ]
 })

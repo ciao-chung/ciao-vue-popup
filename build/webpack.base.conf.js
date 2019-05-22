@@ -67,6 +67,10 @@ module.exports = {
         loader: 'sass',
         exclude: /node_modules/,
       },
+      {
+        test: /\.md$/,
+        loader: 'vue-markdown-loader'
+      },
     ]
   },
   node: {
