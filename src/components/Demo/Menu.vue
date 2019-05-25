@@ -32,7 +32,9 @@ export default {
         },
         {
           label: 'Confirm',
-          anchor: 'confirm',
+          route: {
+            name: 'confirm',
+          },
         },
         {
           label: 'Prompt',

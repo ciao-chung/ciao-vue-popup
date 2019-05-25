@@ -36,6 +36,11 @@ export default {
       type: Object,
     },
   },
+  data() {
+    return {
+      autoCloseTimeout: null,
+    }
+  },
   mounted() {
     this.init()
   },
@@ -46,6 +51,8 @@ export default {
       $(window).resize(() => {
         this.setupItemStyle()
       })
+
+      if(this.item.autoClose) this.autoClose()
     },
     setupItemStyle() {
       this.$nextTick(() => {
@@ -69,6 +76,12 @@ export default {
     close() {
       this.$emit('close', this.item.uid)
     },
+    autoClose() {
+      clearTimeout(this.autoCloseTimeout)
+      this.autoCloseTimeout = setTimeout(() => {
+        this.close()
+      }, this.item.autoClose)
+    }
   },
   computed: {
     createFooter() {

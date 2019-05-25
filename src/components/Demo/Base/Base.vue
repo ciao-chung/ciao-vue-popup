@@ -24,6 +24,18 @@
       </button>
     </div>
 
+    <div class="example-container">
+      <h2>Auto Close</h2>
+
+      <div class="mark-container">
+        <ExampleAutoClose></ExampleAutoClose>
+      </div>
+
+      <button class="btn btn-success btn-sm" @click="autoClose">
+        popup
+      </button>
+    </div>
+
 
 
   </div>
@@ -32,6 +44,7 @@
 <script lang="babel" type="text/babel">
 import ExampleString from '@/components/Demo/Base/String.md'
 import ExampleTitleAndContent from '@/components/Demo/Base/TitleAndContent.md'
+import ExampleAutoClose from '@/components/Demo/Base/AutoClose.md'
 export default {
   methods: {
     string() {
@@ -43,10 +56,18 @@ export default {
         content: 'bar',
       })
     },
+    autoClose() {
+      this.$popup('append', {
+        title: 'foo',
+        content: 'bar',
+        autoClose: 3000,
+      })
+    },
   },
   components: {
     ExampleString,
     ExampleTitleAndContent,
+    ExampleAutoClose,
   },
 }
 </script>

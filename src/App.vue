@@ -16,7 +16,7 @@
 
 <script>
 import Vue from 'vue'
-import Prismjs from 'prismjs'
+import prismjs from 'prismjs'
 import PrismjsLoadLanguages from 'prismjs/components/index.js'
 import Popup from '@/components/Plugin/Installer.js'
 import PartialMenu from '@/components/Demo/Menu.vue'
@@ -24,6 +24,9 @@ Vue.use(Popup)
 
 export default {
   name: 'App',
+  updated() {
+    prismjs.highlightAll()
+  },
   components: {
     PartialMenu,
   },
