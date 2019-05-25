@@ -3,7 +3,6 @@ const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
-const babelLoaderConfig = require('./babel-loader.conf')
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -37,7 +36,15 @@ module.exports = {
         loader: 'vue-loader',
         options: vueLoaderConfig
       },
-      babelLoaderConfig(resolve),
+      {
+        test: /\.js$/,
+        loader: 'babel-loader',
+        include: [
+          resolve('src'),
+          resolve('test'),
+          resolve('node_modules/webpack-dev-server/client')
+        ],
+      },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: 'url-loader',

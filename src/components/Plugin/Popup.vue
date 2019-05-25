@@ -74,6 +74,7 @@ export default {
       const config = !this.config ? {} : this.config
       let result = {
         defaultTitle: null,
+        ...config,
       }
       return result
     },
