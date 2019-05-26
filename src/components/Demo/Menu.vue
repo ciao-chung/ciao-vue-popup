@@ -17,6 +17,18 @@ export default {
     return {
       menu: [
         {
+          label: 'Home',
+          route: {
+            name: 'home',
+          },
+        },
+        {
+          label: 'Default Config',
+          route: {
+            name: 'default-config',
+          },
+        },
+        {
           label: 'Base usage',
           route: {
             name: 'base',

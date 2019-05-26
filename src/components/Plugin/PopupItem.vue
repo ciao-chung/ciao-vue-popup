@@ -4,7 +4,7 @@
       <div class="help"></div>
 
       <div class="title">
-        <span v-show="item.title">{{item.title}}</span>
+        <span v-show="title">{{title}}</span>
       </div>
 
       <div class="action">
@@ -33,6 +33,9 @@ import ItemText from './PopupItem/Text'
 export default {
   props: {
     item: {
+      type: Object,
+    },
+    defaultConfig: {
       type: Object,
     },
   },
@@ -88,6 +91,10 @@ export default {
       if(this.item.accept) return true
       if(this.item.footer) return true
       return false
+    },
+    title() {
+      if(this.item.title) return this.item.title
+      return this.defaultConfig.defaultTitle
     },
   },
   components: {

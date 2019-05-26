@@ -1,9 +1,9 @@
 <template>
   <div>
     <div class="example-container">
-      <h2>Confirm</h2>
+      <h1>Confirm</h1>
 
-      <div class="mark-container">
+      <div class="markdown-container">
 
       </div>
 

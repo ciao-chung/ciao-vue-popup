@@ -5,6 +5,7 @@
         <PopupItem ciao-vue-popup="item"
           @close="close"
           v-for="item in items"
+          :defaultConfig="defaultConfig"
           :item="item"
           :key="'ciao-vue-popup-'+item.uid">
         </PopupItem>

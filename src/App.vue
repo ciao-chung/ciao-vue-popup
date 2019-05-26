@@ -58,6 +58,6 @@ div#app
       cursor: pointer
 .example-container
   padding: 20px 0
-  .mark-container
+  .markdown-container
     margin: 25px 0
 </style>

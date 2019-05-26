@@ -3,7 +3,7 @@
     <div class="example-container">
       <h2>String</h2>
 
-      <div class="mark-container">
+      <div class="markdown-container">
         <ExampleString></ExampleString>
       </div>
 
@@ -13,9 +13,9 @@
     </div>
 
     <div class="example-container">
-      <h2>Title and content</h2>
+      <h1>Title and content</h1>
 
-      <div class="mark-container">
+      <div class="markdown-container">
         <ExampleTitleAndContent></ExampleTitleAndContent>
       </div>
 
@@ -27,7 +27,7 @@
     <div class="example-container">
       <h2>Auto Close</h2>
 
-      <div class="mark-container">
+      <div class="markdown-container">
         <ExampleAutoClose></ExampleAutoClose>
       </div>
 
