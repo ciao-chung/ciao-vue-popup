@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="example-container">
-      <h2>String</h2>
+      <h1>String</h1>
 
       <div class="markdown-container">
         <ExampleString></ExampleString>
@@ -25,7 +25,7 @@
     </div>
 
     <div class="example-container">
-      <h2>Auto Close</h2>
+      <h1>Auto Close</h1>
 
       <div class="markdown-container">
         <ExampleAutoClose></ExampleAutoClose>

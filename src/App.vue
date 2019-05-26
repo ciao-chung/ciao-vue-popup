@@ -33,7 +33,7 @@ export default {
   computed: {
     config() {
       return {
-        defaultTitle: 'Popup',
+        title: 'POPUP',
       }
     }
   },

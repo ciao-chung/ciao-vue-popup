@@ -8,7 +8,7 @@ yarn add ciao-vue-popup
 
 **App.vue**
 
-```vue
+```html
 <template>
   <div id="app">
     <VuePopupPlugin :config="popupDefaultConfig"/>
@@ -16,10 +16,6 @@ yarn add ciao-vue-popup
 </template>
 
 <script>
-import Vue from 'vue'
-import CiaoVuePopup from 'ciao-vue-popup'
-Vue.use(CiaoVuePopup)
-
 export default {
   name: 'App',
   data() {
@@ -33,6 +29,6 @@ export default {
 }
 </script>
 
-<!--don forget import style-->
+<!--Don't forget import style-->
 <style src="ciao-vue-popup/dist/ciao-vue-popup.css"></style>
 ```

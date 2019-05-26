@@ -1,5 +1,5 @@
 <template>
-  <div tabindex="0" ciao-vue-popup="item" @keyup.esc.stop="close">
+  <div tabindex="0" ciao-vue-popup="item" @keyup.esc.stop="close" :style="popupItemStyle">
     <div ciao-vue-popup="header">
       <div class="help"></div>
 
@@ -87,14 +87,28 @@ export default {
     }
   },
   computed: {
+    popupItemStyle() {
+      return {
+        zIndex: this.zIndex,
+        minWidth: this.minWidth,
+      }
+    },
     createFooter() {
       if(this.item.accept) return true
       if(this.item.footer) return true
       return false
     },
     title() {
-      if(this.item.title) return this.item.title
-      return this.defaultConfig.defaultTitle
+      if(this.item.title != undefined) return this.item.title
+      return this.defaultConfig.title
+    },
+    zIndex() {
+      if(!this.item.zIndex) return 9000
+      return this.item.zIndex
+    },
+    minWidth() {
+      if(!this.item.minWidth) return '20vw'
+      return this.item.minWidth
     },
   },
   components: {
