@@ -1,4 +1,4 @@
-### title
+#### title
 
 **Type: String**
 
@@ -8,15 +8,15 @@ Popup will show this value when your append popup don't setup title(**undefined*
 
 <hr>
 
-### zIndex
+#### zIndex
 
 **Type: Number**
 
-Setup z-index of first popup(default value is 9000).
+Setup z-index of first popup(default value is **9000**).
 
 <hr>
 
-### minWidth
+#### minWidth
 
 **Type: String** 
 
@@ -24,7 +24,7 @@ Setup popup min width, default is **20vw**
 
 <hr>
 
-### applyOnEnter
+#### applyOnEnter
 
 **Type: Boolean**
 
@@ -32,7 +32,7 @@ Commit apply action when key up enter if has apply button(confirm/prompt mode), 
 
 <hr>
 
-### prompt.inputCustomClass
+#### prompt.inputCustomClass
 
 **Type: String**
 

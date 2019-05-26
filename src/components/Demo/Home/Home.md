@@ -22,7 +22,10 @@ export default {
     return {
       // to get more default config information see default config page 
       popupDefaultConfig: {
-        defaultTitle: 'ciao-vue-popup',
+        title: 'ciao-vue-popup',
+        prompt: {
+          inputCustomClass: 'form-control form-control-sm',
+        },
       }
     }
   },
