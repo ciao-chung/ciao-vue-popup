@@ -14,7 +14,7 @@
 
     <div ciao-vue-popup="body">
       <component
-        :is="getComponent(item.type)"
+        :is="getComponent(item)"
         :popupConfig="item"
         :key="'ciao-vue-popup-'+item.uid">
       </component>
@@ -70,11 +70,12 @@ export default {
         $(this.$el).find('.title').width(popupWidth - helpWidth - actionWidth)
       })
     },
-    getComponent(name) {
+    getComponent(item) {
+      if(item.component) return item.component
       if(!name) return 'item-text'
-      const getComponent = !!this.$options.components[`item-${name}`]
+      const getComponent = !!this.$options.components[`item-${item.name}`]
       if(!getComponent) return null
-      return `item-${name}`
+      return `item-${item.name}`
     },
     close() {
       this.$emit('close', this.item.uid)

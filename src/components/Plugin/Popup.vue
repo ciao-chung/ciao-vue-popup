@@ -65,10 +65,22 @@ export default {
       if(!this.itemKeyValueModel[uid]) return
       const index = this.itemKeyValueModel[uid].index
       this.$delete(this.items, index)
+      setTimeout(() => {
+        this.focusLastPopup()
+      }, 300)
     },
     closeAll() {
 
     },
+    focusLastPopup() {
+      const $items = $('div[ciao-vue-popup="item"]')
+        .not('.fade-leave-active')
+        .not('.fade-leave-to')
+      if($items.length == 0) return
+      const $lastItem = $items[$items.length-1]
+      if(!$lastItem) return
+      $lastItem.focus()
+    }
   },
   computed: {
     defaultConfig() {

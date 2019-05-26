@@ -53,12 +53,14 @@ export default {
           anchor: 'prompt',
         },
         {
-          label: 'Auto close',
-          anchor: 'auto-close',
+          label: 'Custom vue component',
+          route: {
+            name: 'custom-vue-component',
+          },
         },
         {
-          label: 'Custom vue component',
-          anchor: 'custom-vue-component',
+          label: 'Auto close',
+          anchor: 'auto-close',
         },
         {
           label: 'Apply',
