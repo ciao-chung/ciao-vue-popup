@@ -1,10 +1,10 @@
 <template>
   <div>
     <div class="example-container">
-      <h1>Confirm</h1>
+      <h1>Prompt</h1>
 
       <div class="markdown-container">
-        <ExampleConfirm></ExampleConfirm>
+        <ExamplePrompt></ExamplePrompt>
       </div>
 
       <button class="btn btn-success btn-sm" @click="confirm">
@@ -15,24 +15,27 @@
 </template>
 
 <script lang="babel" type="text/babel">
-import ExampleConfirm from '@/components/Demo/Confirm/BaseConfirm.md'
+import ExamplePrompt from '@/components/Demo/Prompt/Prompt.md'
 export default {
   methods: {
     confirm() {
       this.$popup('append', {
-        type: 'confirm',
-        content: 'Do you want to continue?',
+        type: 'prompt',
+        content: 'Enter your name',
+        defaultValue: 'Your name',
+        placeholder: 'Your name',
         apply: {
           callback: this.apply,
         },
       })
     },
-    apply() {
-      alert('apply')
+    apply(data) {
+      alert(`apply: ${data}`)
+      console.warn('apply', data)
     },
   },
   components: {
-    ExampleConfirm,
+    ExamplePrompt,
   },
 }
 </script>

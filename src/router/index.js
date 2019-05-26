@@ -4,6 +4,7 @@ import DemoHome from '@/components/Demo/Home/Home.vue'
 import DemoDefaultConfig from '@/components/Demo/DefaultConfig/DefaultConfig.vue'
 import DemoBase from '@/components/Demo/Base/Base.vue'
 import DemoConfirm from '@/components/Demo/Confirm/Confirm.vue'
+import DemoPrompt from '@/components/Demo/Prompt/Prompt.vue'
 import DemoCustomComponent from '@/components/Demo/CustomComponent/CustomComponent.vue'
 
 Vue.use(Router)
@@ -29,6 +30,11 @@ export default new Router({
       path: '/confirm',
       name: 'confirm',
       component: DemoConfirm,
+    },
+    {
+      path: '/prompt',
+      name: 'prompt',
+      component: DemoPrompt,
     },
     {
       path: '/custom-vue-component',

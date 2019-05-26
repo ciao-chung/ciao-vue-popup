@@ -29,3 +29,13 @@ Setup popup min width, default is **20vw**
 **Type: Boolean**
 
 Commit apply action when key up enter if has apply button(confirm/prompt mode), default is **true**.
+
+<hr>
+
+### prompt.inputCustomClass
+
+**Type: String**
+
+Set default custom classes of prompt input
+
+<hr>

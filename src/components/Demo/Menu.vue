@@ -42,7 +42,9 @@ export default {
         },
         {
           label: 'Prompt',
-          anchor: 'prompt',
+          route: {
+            name: 'prompt',
+          },
         },
         {
           label: 'Custom vue component',

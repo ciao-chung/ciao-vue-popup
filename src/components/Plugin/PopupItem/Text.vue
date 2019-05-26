@@ -1,6 +1,6 @@
 <template>
   <div>
-    {{popupConfig.content}}
+    <div class="title">{{popupConfig.content}}</div>
   </div>
 </template>
 

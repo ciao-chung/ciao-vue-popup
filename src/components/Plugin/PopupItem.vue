@@ -17,8 +17,11 @@
 
     <div ciao-vue-popup="body">
       <component
+        @updateData="updateData"
+        :defaultConfig="defaultConfig"
         :is="getComponent(item)"
         :popupConfig="item"
+        :ciao-vue-popup-type="item.type"
         :key="'ciao-vue-popup-'+item.uid">
       </component>
     </div>
@@ -34,6 +37,7 @@
 <script lang="babel" type="text/babel">
 import ItemText from './PopupItem/Text'
 import ItemConfirm from './PopupItem/Confirm'
+import ItemPrompt from './PopupItem/Prompt'
 export default {
   props: {
     item: {
@@ -46,6 +50,7 @@ export default {
   data() {
     return {
       autoCloseTimeout: null,
+      data: null,
     }
   },
   mounted() {
@@ -76,10 +81,10 @@ export default {
     },
     getComponent(item) {
       if(item.component) return item.component
-      if(!name) return 'item-text'
-      const getComponent = !!this.$options.components[`item-${item.name}`]
+      if(!item.type) return 'item-text'
+      const getComponent = !!this.$options.components[`item-${item.type}`]
       if(!getComponent) return null
-      return `item-${item.name}`
+      return `item-${item.type}`
     },
     close() {
       this.$emit('close', this.item.uid)
@@ -95,9 +100,13 @@ export default {
       if(this.defaultConfig.applyOnEnter == true) return this.apply()
       return
     },
+    updateData(data) {
+      this.data = data
+    },
     async apply() {
+      if(typeof this.item.apply.callback != 'function') return
       try {
-        await this.item.apply.callback()
+        await this.item.apply.callback(this.data)
       } catch(error) {
         console.error(error)
       }
@@ -138,6 +147,7 @@ export default {
   components: {
     'item-text': ItemText,
     'item-confirm': ItemConfirm,
+    'item-prompt': ItemPrompt,
   },
 }
 </script>

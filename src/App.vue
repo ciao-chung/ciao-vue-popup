@@ -34,6 +34,9 @@ export default {
     config() {
       return {
         title: 'POPUP',
+        prompt: {
+          inputCustomClass: 'form-control form-control-sm',
+        },
       }
     }
   },

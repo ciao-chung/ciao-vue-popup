@@ -1,3 +1,9 @@
+### Confirm Properties
+
+- apply(required): Object, **ApplyObject**
+
+### Example
+
 You can pass a string to show a simple message popup.
 
 ```javascript
