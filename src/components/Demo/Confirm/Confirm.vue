@@ -20,8 +20,7 @@ export default {
     confirm() {
       this.$popup('append', {
         type: 'confirm',
-        title: 'foo',
-        content: 'bar',
+        content: 'Do you want to continue?',
         apply: {
           callback: this.apply,
         },

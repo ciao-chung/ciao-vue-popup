@@ -35,14 +35,6 @@ export default {
           },
         },
         {
-          label: 'Size',
-          anchor: 'size',
-        },
-        {
-          label: 'z-index',
-          anchor: 'z-index',
-        },
-        {
           label: 'Confirm',
           route: {
             name: 'confirm',

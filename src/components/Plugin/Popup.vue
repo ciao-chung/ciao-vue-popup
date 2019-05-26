@@ -33,15 +33,11 @@ export default {
     }
   },
   created() {
-    this.init()
     events.$on('append', this.append)
     events.$on('close', this.close)
     events.$on('closeAll', this.closeAll)
   },
   methods: {
-    init() {
-      console.warn('init', this.defaultConfig)
-    },
     uid() {
       return uuid.v4()
     },
@@ -87,6 +83,7 @@ export default {
       const config = !this.config ? {} : this.config
       let result = {
         defaultTitle: null,
+        applyOnEnter: true,
         ...config,
       }
       return result

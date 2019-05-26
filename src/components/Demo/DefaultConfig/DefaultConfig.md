@@ -23,3 +23,9 @@ Setup z-index of first popup(default value is 9000).
 Setup popup min width, default is **20vw**
 
 <hr>
+
+### applyOnEnter
+
+**Type: Boolean**
+
+Commit apply action when key up enter if has apply button(confirm/prompt mode), default is **true**.

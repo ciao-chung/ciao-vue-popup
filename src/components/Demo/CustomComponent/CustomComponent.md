@@ -15,7 +15,7 @@ export default {
 
 **foobar.vue**
 
-> You can use popupConfig in props to get popup object.
+> You can use popupConfig in props to get popup object which you pass to **append** method.
 
 ```html
 <template>

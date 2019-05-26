@@ -1,5 +1,8 @@
 <template>
-  <div tabindex="0" ciao-vue-popup="item" @keyup.esc.stop="close" :style="popupItemStyle">
+  <div tabindex="0" ciao-vue-popup="item"
+    @keyup.enter.stop="onPopupItemKeyUpEnter"
+    @keyup.esc.stop="close"
+    :style="popupItemStyle">
     <div ciao-vue-popup="header">
       <div class="help"></div>
 
@@ -21,7 +24,7 @@
     </div>
 
     <div ciao-vue-popup="footer" v-if="createFooter">
-      <button ciao-vue-popup-button="info" v-if="item.accept">
+      <button ciao-vue-popup-button="info" v-if="createApplyButton" @click="apply">
         {{'Apply'}}
       </button>
     </div>
@@ -30,6 +33,7 @@
 
 <script lang="babel" type="text/babel">
 import ItemText from './PopupItem/Text'
+import ItemConfirm from './PopupItem/Confirm'
 export default {
   props: {
     item: {
@@ -85,7 +89,20 @@ export default {
       this.autoCloseTimeout = setTimeout(() => {
         this.close()
       }, this.item.autoClose)
-    }
+    },
+    onPopupItemKeyUpEnter() {
+      if(this.item.applyOnEnter == true) return this.apply()
+      if(this.defaultConfig.applyOnEnter == true) return this.apply()
+      return
+    },
+    async apply() {
+      try {
+        await this.item.apply.callback()
+      } catch(error) {
+        console.error(error)
+      }
+      this.close()
+    },
   },
   computed: {
     popupItemStyle() {
@@ -95,8 +112,14 @@ export default {
       }
     },
     createFooter() {
-      if(this.item.accept) return true
+      if(this.createApplyButton) return true
       if(this.item.footer) return true
+      return false
+    },
+    createApplyButton() {
+      if(this.item.type == 'confirm') return true
+      if(this.item.type == 'prompt') return true
+      if(this.item.apply) return true
       return false
     },
     title() {
@@ -114,6 +137,7 @@ export default {
   },
   components: {
     'item-text': ItemText,
+    'item-confirm': ItemConfirm,
   },
 }
 </script>
