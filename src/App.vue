@@ -34,6 +34,9 @@ export default {
     config() {
       return {
         title: 'POPUP',
+        apply: {
+          extraClass: 'btn btn-sm btn-info',
+        },
         prompt: {
           inputCustomClass: 'form-control form-control-sm',
         },
@@ -63,4 +66,14 @@ div#app
   padding: 20px 0
   .markdown-container
     margin: 25px 0
+
+*[ciao-vue-popup-button]
+  border-radius: 0
+  outline: none
+  border: none
+  font-size: 14px
+  cursor: pointer
+  &:active, &:focus
+    border: none
+    outline: none
 </style>

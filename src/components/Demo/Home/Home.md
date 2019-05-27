@@ -23,6 +23,9 @@ export default {
       // to get more default config information see default config page 
       popupDefaultConfig: {
         title: 'ciao-vue-popup',
+        apply: {
+          extraClass: 'btn btn-sm btn-info',
+        },
         prompt: {
           inputCustomClass: 'form-control form-control-sm',
         },

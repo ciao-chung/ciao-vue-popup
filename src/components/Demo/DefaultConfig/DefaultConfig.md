@@ -39,3 +39,11 @@ Commit apply action when key up enter if has apply button(confirm/prompt mode), 
 Set default custom classes of prompt input
 
 <hr>
+
+#### apply.extraClass
+
+**Type: String**
+
+Set default custom classes of apply button
+
+<hr>

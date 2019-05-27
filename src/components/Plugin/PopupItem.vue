@@ -29,9 +29,10 @@
     </div>
 
     <div ciao-vue-popup="footer" v-if="createFooter">
-      <button ciao-vue-popup-button="info"
+      <button ciao-vue-popup-button
         @click="apply"
         v-if="createApplyButton"
+        :class=applyButtonExtraClass
         :disabled="disableApply">
         {{'Apply'}}
       </button>
@@ -129,6 +130,11 @@ export default {
     },
   },
   computed: {
+    applyButtonExtraClass() {
+      if(!this.defaultConfig) return null
+      if(!this.defaultConfig.apply) return null
+      return this.defaultConfig.apply.extraClass
+    },
     disableApply() {
       if(this.loading == true) return true
       return false
