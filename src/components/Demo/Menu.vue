@@ -53,16 +53,10 @@ export default {
           },
         },
         {
-          label: 'Auto close',
-          anchor: 'auto-close',
-        },
-        {
-          label: 'Apply',
-          anchor: 'apply',
-        },
-        {
-          label: 'Close',
-          anchor: 'close',
+          label: 'Close Callback',
+          route: {
+            name: 'close-callback',
+          },
         },
         {
           label: 'Async',

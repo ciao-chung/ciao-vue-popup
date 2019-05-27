@@ -1,7 +1,7 @@
 <template>
   <div tabindex="0" ciao-vue-popup="item"
     @keyup.enter.stop="onPopupItemKeyUpEnter"
-    @keyup.esc.stop="close"
+    @keyup.esc.stop="close(true)"
     :style="popupItemStyle">
     <div ciao-vue-popup="header">
       <div class="help"></div>
@@ -11,7 +11,7 @@
       </div>
 
       <div class="action">
-        <span class="close-icon" @click="close">&times;</span>
+        <span class="close-icon" @click="close(true)">&times;</span>
       </div>
     </div>
 
@@ -86,8 +86,9 @@ export default {
       if(!getComponent) return null
       return `item-${item.type}`
     },
-    close() {
+    close(isCancel = false) {
       this.$emit('close', this.item.uid)
+      if(typeof this.item.closeCallback == 'function') this.item.closeCallback()
     },
     autoClose() {
       clearTimeout(this.autoCloseTimeout)
@@ -104,9 +105,9 @@ export default {
       this.data = data
     },
     async apply() {
-      if(typeof this.item.apply.callback != 'function') return
+      if(!this.applyCallback) return
       try {
-        await this.item.apply.callback(this.data)
+        await this.applyCallback(this.data)
       } catch(error) {
         console.error(error)
       }
@@ -114,6 +115,12 @@ export default {
     },
   },
   computed: {
+    applyCallback() {
+      if(!this.item) return null
+      if(!this.item.apply) return null
+      if(typeof this.item.apply.callback != 'function') return null
+      return this.item.apply.callback
+    },
     popupItemStyle() {
       return {
         zIndex: this.zIndex,

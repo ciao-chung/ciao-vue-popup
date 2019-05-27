@@ -6,6 +6,7 @@ import DemoBase from '@/components/Demo/Base/Base.vue'
 import DemoConfirm from '@/components/Demo/Confirm/Confirm.vue'
 import DemoPrompt from '@/components/Demo/Prompt/Prompt.vue'
 import DemoCustomComponent from '@/components/Demo/CustomComponent/CustomComponent.vue'
+import DemoCloseCallback from '@/components/Demo/CloseCallback/CloseCallback.vue'
 
 Vue.use(Router)
 
@@ -40,6 +41,11 @@ export default new Router({
       path: '/custom-vue-component',
       name: 'custom-vue-component',
       component: DemoCustomComponent,
+    },
+    {
+      path: '/close-callback',
+      name: 'close-callback',
+      component: DemoCloseCallback,
     },
   ]
 })
