@@ -79,10 +79,11 @@ div[ciao-vue-popup="main"]
               color: darken($main-color, 15%)
         .help
         .title
-          text-align: center
       div[ciao-vue-popup="body"]
         padding: 30px 20px
         font-size: 14px
+        &[empty]
+          padding: 0
       div[ciao-vue-popup="footer"]
         border-top: 1px $light-gray solid
         padding: 10px 20px

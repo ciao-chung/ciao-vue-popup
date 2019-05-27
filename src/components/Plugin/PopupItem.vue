@@ -8,6 +8,7 @@
 
       <div class="title">
         <span v-show="title">{{title}}</span>
+        <Loader v-if="loading"></Loader>
       </div>
 
       <div class="action">
@@ -15,8 +16,9 @@
       </div>
     </div>
 
-    <div ciao-vue-popup="body">
+    <div ciao-vue-popup="body" :empty="isEmptyBody">
       <component
+        @setLoader="setLoader"
         @updateData="updateData"
         :defaultConfig="defaultConfig"
         :is="getComponent(item)"
@@ -27,7 +29,10 @@
     </div>
 
     <div ciao-vue-popup="footer" v-if="createFooter">
-      <button ciao-vue-popup-button="info" v-if="createApplyButton" @click="apply">
+      <button ciao-vue-popup-button="info"
+        @click="apply"
+        v-if="createApplyButton"
+        :disabled="disableApply">
         {{'Apply'}}
       </button>
     </div>
@@ -35,6 +40,7 @@
 </template>
 
 <script lang="babel" type="text/babel">
+import Loader from '@/components/Plugin/Loader.vue'
 import ItemText from './PopupItem/Text'
 import ItemConfirm from './PopupItem/Confirm'
 import ItemPrompt from './PopupItem/Prompt'
@@ -51,6 +57,7 @@ export default {
     return {
       autoCloseTimeout: null,
       data: null,
+      loading: false,
     }
   },
   mounted() {
@@ -106,15 +113,26 @@ export default {
     },
     async apply() {
       if(!this.applyCallback) return
+      if(this.loading) return
+
+      this.setLoader(true)
       try {
         await this.applyCallback(this.data)
       } catch(error) {
         console.error(error)
       }
+      this.setLoader(false)
       this.close()
+    },
+    setLoader(status) {
+      this.loading = status
     },
   },
   computed: {
+    disableApply() {
+      if(this.loading == true) return true
+      return false
+    },
     applyCallback() {
       if(!this.item) return null
       if(!this.item.apply) return null
@@ -126,6 +144,12 @@ export default {
         zIndex: this.zIndex,
         minWidth: this.minWidth,
       }
+    },
+    isEmptyBody() {
+      if(!this.item.type && !this.item.content) return true
+      if(this.item.type == 'text' && !this.item.content) return true
+      if(this.item.type == 'confirm' && !this.item.content) return true
+      return false
     },
     createFooter() {
       if(this.createApplyButton) return true
@@ -152,6 +176,7 @@ export default {
     },
   },
   components: {
+    Loader,
     'item-text': ItemText,
     'item-confirm': ItemConfirm,
     'item-prompt': ItemPrompt,

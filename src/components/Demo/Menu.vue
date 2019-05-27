@@ -59,8 +59,10 @@ export default {
           },
         },
         {
-          label: 'Async',
-          anchor: 'async',
+          label: 'Async apply',
+          route: {
+            name: 'async-apply',
+          },
         },
         {
           label: 'Error',

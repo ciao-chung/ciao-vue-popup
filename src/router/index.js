@@ -7,6 +7,7 @@ import DemoConfirm from '@/components/Demo/Confirm/Confirm.vue'
 import DemoPrompt from '@/components/Demo/Prompt/Prompt.vue'
 import DemoCustomComponent from '@/components/Demo/CustomComponent/CustomComponent.vue'
 import DemoCloseCallback from '@/components/Demo/CloseCallback/CloseCallback.vue'
+import DemoAsyncApply from '@/components/Demo/AsyncApply/AsyncApply.vue'
 
 Vue.use(Router)
 
@@ -46,6 +47,11 @@ export default new Router({
       path: '/close-callback',
       name: 'close-callback',
       component: DemoCloseCallback,
+    },
+    {
+      path: '/async-apply',
+      name: 'async-apply',
+      component: DemoAsyncApply,
     },
   ]
 })
