@@ -1,4 +1,4 @@
-### Confirm Properties
+### Properties
 
 - apply(required): Object, **ApplyObject**
 

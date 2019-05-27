@@ -1,10 +1,7 @@
 ### Properties
 
-closeCallback(option): Function, on close callback.
-
-### Arguments
-
-- isCancel: Boolean, if this argument is true, it mean user close popup manually(click close icon or key up esc key).
+- closeCallback(option): Function, on close callback.
+  - isCancel(argument1): Boolean, if this argument is true, it mean user close popup manually(click close icon or key up esc key).
 
 ### Example
 

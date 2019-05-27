@@ -1,9 +1,10 @@
-### Prompt Properties
+### Properties
 
 - defaultValue(optional): String, Set default input value
 - placeholder(optional): String, Set input placeholder
 - inputCustomClass(optional): String, set custom classes of input
 - apply(required): Object, **ApplyObject**
+  - data(argument1): Any, result of prompt. 
 
 ### Example
 

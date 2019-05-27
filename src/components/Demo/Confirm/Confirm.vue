@@ -15,7 +15,7 @@
 </template>
 
 <script lang="babel" type="text/babel">
-import ExampleConfirm from '@/components/Demo/Confirm/BaseConfirm.md'
+import ExampleConfirm from '@/components/Demo/Confirm/Confirm.md'
 export default {
   methods: {
     confirm() {
