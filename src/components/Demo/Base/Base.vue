@@ -37,6 +37,17 @@
     </div>
 
     <div class="example-container">
+      <h1>Without shadow</h1>
+
+      <div class="markdown-container">
+      </div>
+
+      <button class="btn btn-success btn-sm" @click="withoutShadow">
+        popup
+      </button>
+    </div>
+
+    <div class="example-container">
       <h1>Auto Close</h1>
 
       <div class="markdown-container">
@@ -71,6 +82,12 @@ export default {
       this.$popup('append', {
         content: 'help',
         help: 'This is help<br> This is help',
+      })
+    },
+    withoutShadow() {
+      this.$popup('append', {
+        content: 'Without shadow',
+        shadow: false,
       })
     },
     autoClose() {

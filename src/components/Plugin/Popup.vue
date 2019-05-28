@@ -66,7 +66,7 @@ export default {
       }, 300)
     },
     closeAll() {
-
+      this.items = []
     },
     focusLastPopup() {
       const $items = $('div[ciao-vue-popup="item"]')

@@ -2,6 +2,7 @@
   <div tabindex="0" ciao-vue-popup="item"
     @keyup.enter.stop="onPopupItemKeyUpEnter"
     @keyup.esc.stop="close(true)"
+    :transparent="item.shadow == false"
     :style="popupItemStyle">
     <div ciao-vue-popup="header">
       <div class="help" v-if="item.help" v-tooltip="helpTooltipConfig">
