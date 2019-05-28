@@ -23,7 +23,7 @@ export default {
           },
         },
         {
-          label: 'Default Config',
+          label: 'Default config',
           route: {
             name: 'default-config',
           },
@@ -47,9 +47,9 @@ export default {
           },
         },
         {
-          label: 'Custom vue component',
+          label: 'Inject custom component',
           route: {
-            name: 'custom-vue-component',
+            name: 'inject-custom-component',
           },
         },
         {

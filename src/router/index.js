@@ -40,8 +40,8 @@ export default new Router({
       component: DemoPrompt,
     },
     {
-      path: '/custom-vue-component',
-      name: 'custom-vue-component',
+      path: '/inject-custom-component',
+      name: 'inject-custom-component',
       component: DemoCustomComponent,
     },
     {

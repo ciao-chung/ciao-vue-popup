@@ -4,7 +4,9 @@
     @keyup.esc.stop="close(true)"
     :style="popupItemStyle">
     <div ciao-vue-popup="header">
-      <div class="help"></div>
+      <div class="help" v-if="item.help">
+        <a :title="item.help">&#10067;</a>
+      </div>
 
       <div class="title">
         <span v-show="title">{{title}}</span>
@@ -12,7 +14,7 @@
       </div>
 
       <div class="action">
-        <span class="close-icon" @click="close(true)">&times;</span>
+        <span class="close-icon" @click="close(true)">&#10005;</span>
       </div>
     </div>
 

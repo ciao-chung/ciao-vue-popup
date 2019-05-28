@@ -25,6 +25,18 @@
     </div>
 
     <div class="example-container">
+      <h1>Help</h1>
+
+      <div class="markdown-container">
+        <ExampleHelp></ExampleHelp>
+      </div>
+
+      <button class="btn btn-success btn-sm" @click="help">
+        popup
+      </button>
+    </div>
+
+    <div class="example-container">
       <h1>Auto Close</h1>
 
       <div class="markdown-container">
@@ -36,14 +48,13 @@
       </button>
     </div>
 
-
-
   </div>
 </template>
 
 <script lang="babel" type="text/babel">
 import ExampleString from '@/components/Demo/Base/String.md'
 import ExampleTitleAndContent from '@/components/Demo/Base/TitleAndContent.md'
+import ExampleHelp from '@/components/Demo/Base/Help.md'
 import ExampleAutoClose from '@/components/Demo/Base/AutoClose.md'
 export default {
   methods: {
@@ -54,6 +65,12 @@ export default {
       this.$popup('append', {
         title: 'foo',
         content: 'bar',
+      })
+    },
+    help() {
+      this.$popup('append', {
+        content: 'help',
+        help: 'This is help\nThis is help',
       })
     },
     autoClose() {
@@ -67,6 +84,7 @@ export default {
   components: {
     ExampleString,
     ExampleTitleAndContent,
+    ExampleHelp,
     ExampleAutoClose,
   },
 }

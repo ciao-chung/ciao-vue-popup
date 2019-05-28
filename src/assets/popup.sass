@@ -65,7 +65,16 @@ div[ciao-vue-popup="main"]
               transition: all 0.3s ease
               color: darken($main-color, 15%)
         .help
+          margin-right: 20px
+          text-align: center
+          cursor: pointer
+          user-select: none
+          transition: all 0.3s ease
+          &:hover
+            transition: all 0.3s ease
+            color: darken($main-color, 15%)
         .title
+          user-select: none
       div[ciao-vue-popup="body"]
         padding: 30px 20px
         font-size: 14px
