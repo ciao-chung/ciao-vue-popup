@@ -2,4 +2,10 @@
 
 > Ciao Vue Popup
 
-[Demo/Documentation](https://ciao-chung.github.io/ciao-vue-popup)
+## Installation
+
+> yarn add ciao-vue-popup
+
+## Demo/Documentation
+
+[https://ciao-chung.github.io/ciao-vue-popup](https://ciao-chung.github.io/ciao-vue-popup)

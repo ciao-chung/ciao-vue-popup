@@ -76,6 +76,12 @@ export default {
             name: 'error',
           },
         },
+        {
+          label: 'Close popup',
+          route: {
+            name: 'close',
+          },
+        },
       ],
     }
   },

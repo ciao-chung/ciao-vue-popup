@@ -10,6 +10,7 @@ import DemoCustomComponentInFooter from '@/components/Demo/CustomComponentInFoot
 import DemoCloseCallback from '@/components/Demo/CloseCallback/CloseCallback.vue'
 import DemoAsyncApply from '@/components/Demo/AsyncApply/AsyncApply.vue'
 import DemoError from '@/components/Demo/Error/Error.vue'
+import DemoClose from '@/components/Demo/Close/Close.vue'
 
 Vue.use(Router)
 
@@ -64,6 +65,11 @@ export default new Router({
       path: '/error',
       name: 'error',
       component: DemoError,
+    },
+    {
+      path: '/close',
+      name: 'close',
+      component: DemoClose,
     },
   ]
 })
