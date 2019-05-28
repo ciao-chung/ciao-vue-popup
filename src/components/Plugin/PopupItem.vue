@@ -40,7 +40,7 @@
         v-if="createApplyButton"
         :class=applyButtonExtraClass
         :disabled="disableApply">
-        {{'Apply'}}
+        {{applyLabel}}
       </button>
 
       <component
@@ -153,6 +153,11 @@ export default {
     },
   },
   computed: {
+    applyLabel() {
+      if(this.item.apply && this.item.apply.label) return this.item.apply.label
+      if(this.defaultConfig.apply && this.defaultConfig.apply.label) return this.defaultConfig.apply.label
+      return 'Apply'
+    },
     helpTooltipConfig() {
       return {
         content: this.item.help,
@@ -177,7 +182,6 @@ export default {
     },
     popupItemStyle() {
       return {
-        zIndex: this.zIndex,
         minWidth: this.minWidth,
       }
     },
@@ -201,10 +205,6 @@ export default {
     title() {
       if(this.item.title != undefined) return this.item.title
       return this.defaultConfig.title
-    },
-    zIndex() {
-      if(!this.defaultConfig.zIndex) return 9000
-      return this.defaultConfig.zIndex
     },
     minWidth() {
       if(!this.item.minWidth) return '20vw'

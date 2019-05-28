@@ -1,6 +1,6 @@
 <template>
   <transition name="fade" mode="out-in">
-    <div ciao-vue-popup="main" @click.stop v-if="hasAnyPopup" style="animation-duration: 0.3s">
+    <div ciao-vue-popup="main" @click.stop v-if="hasAnyPopup" :style="popupStyle">
       <transition-group name="fade" ciao-vue-popup="item-container" tag="div">
         <PopupItem ciao-vue-popup="item"
           @close="close"
@@ -87,6 +87,16 @@ export default {
         ...config,
       }
       return result
+    },
+    zIndex() {
+      if(!this.defaultConfig.zIndex) return 9000
+      return this.defaultConfig.zIndex
+    },
+    popupStyle() {
+      return {
+        'animation-duration': '0.3s',
+        zIndex: this.zIndex,
+      }
     },
     itemKeyValueModel() {
       let result = {}
