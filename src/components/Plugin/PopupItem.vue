@@ -54,11 +54,13 @@
 </template>
 
 <script lang="babel" type="text/babel">
+import ScrollTop from '@/components/Plugin/ScrollStop.js'
 import Loader from '@/components/Plugin/Loader.vue'
 import ItemText from './PopupItem/Text'
 import ItemConfirm from './PopupItem/Confirm'
 import ItemPrompt from './PopupItem/Prompt'
 export default {
+  mixins: [ScrollTop],
   props: {
     item: {
       type: Object,
@@ -77,12 +79,14 @@ export default {
   },
   beforeDestroy() {
     clearTimeout(this.autoCloseTimeout)
+    this.unbindMouseWheel()
   },
   mounted() {
     this.init()
   },
   methods: {
     init() {
+      this.scrollStop()
       $(this.$el).focus()
       this.setupItemStyle()
       $(window).resize(() => {
