@@ -203,8 +203,8 @@ export default {
       return this.defaultConfig.title
     },
     zIndex() {
-      if(!this.item.zIndex) return 9000
-      return this.item.zIndex
+      if(!this.defaultConfig.zIndex) return 9000
+      return this.defaultConfig.zIndex
     },
     minWidth() {
       if(!this.item.minWidth) return '20vw'

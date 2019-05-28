@@ -34,6 +34,7 @@ export default {
     config() {
       return {
         title: 'POPUP',
+        zIndex: 10000,
         apply: {
           extraClass: 'btn btn-sm btn-info',
         },

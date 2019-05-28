@@ -15,7 +15,12 @@ yarn add ciao-vue-popup
   </div>
 </template>
 
-<script>
+<!--Don't forget import style-->
+<style src="ciao-vue-popup/dist/ciao-vue-popup.css"></style>
+```
+
+**script**
+```javascript
 import Vue from 'vue'
 import CiaoVuePopup from 'ciao-vue-popup'
 Vue.use(CiaoVuePopup)
@@ -37,8 +42,4 @@ export default {
     }
   },
 }
-</script>
-
-<!--Don't forget import style-->
-<style src="ciao-vue-popup/dist/ciao-vue-popup.css"></style>
 ```
