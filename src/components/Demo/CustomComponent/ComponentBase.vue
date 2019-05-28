@@ -1,6 +1,9 @@
 <template>
   <div foobar>
-    <h4>foobar</h4>
+    <div v-for="i in 10">
+      <h3>Some Custom Content</h3>
+      <img src="https://vuejs.org/images/logo.png" alt="">
+    </div>
   </div>
 </template>
 

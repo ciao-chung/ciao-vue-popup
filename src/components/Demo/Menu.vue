@@ -53,6 +53,12 @@ export default {
           },
         },
         {
+          label: 'Custom component in footer',
+          route: {
+            name: 'custom-component-in-footer',
+          },
+        },
+        {
           label: 'Close Callback',
           route: {
             name: 'close-callback',

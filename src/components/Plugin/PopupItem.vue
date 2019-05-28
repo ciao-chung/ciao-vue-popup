@@ -33,6 +33,7 @@
     </div>
 
     <div ciao-vue-popup="footer" v-if="createFooter">
+      <!--apply button-->
       <button ciao-vue-popup-button
         @click="apply"
         v-if="createApplyButton"
@@ -40,6 +41,13 @@
         :disabled="disableApply">
         {{'Apply'}}
       </button>
+
+      <component
+        @close="close"
+        @setLoader="setLoader"
+        v-for="customComponent, key in footerCustomComponents"
+        :key="'component-'+key"
+        :is="customComponent"></component>
     </div>
   </div>
 </template>
@@ -176,7 +184,7 @@ export default {
     },
     createFooter() {
       if(this.createApplyButton) return true
-      if(this.item.footer) return true
+      if(this.footerCustomComponents) return true
       return false
     },
     createApplyButton() {
@@ -196,6 +204,12 @@ export default {
     minWidth() {
       if(!this.item.minWidth) return '20vw'
       return this.item.minWidth
+    },
+    footerCustomComponents() {
+      if(!this.item) return null
+      if(!this.item.footer) return null
+      if(!this.item.footer.components) return null
+      return this.item.footer.components
     },
   },
   components: {

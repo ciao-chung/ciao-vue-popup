@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <div class="title">{{popupConfig.content}}</div>
-  </div>
+  <div class="content" v-html="popupConfig.content"></div>
 </template>
 
 <script lang="babel" type="text/babel">

@@ -1,6 +1,7 @@
 <template>
   <div>
-    <div class="title">{{popupConfig.content}}</div>
+    <div class="content" v-html="popupConfig.content"></div>
+
     <div class="input-container">
       <input type="text"
         :class="inputCustomClass"

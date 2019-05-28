@@ -6,6 +6,7 @@ import DemoBase from '@/components/Demo/Base/Base.vue'
 import DemoConfirm from '@/components/Demo/Confirm/Confirm.vue'
 import DemoPrompt from '@/components/Demo/Prompt/Prompt.vue'
 import DemoCustomComponent from '@/components/Demo/CustomComponent/CustomComponent.vue'
+import DemoCustomComponentInFooter from '@/components/Demo/CustomComponentInFooter/CustomComponentInFooter.vue'
 import DemoCloseCallback from '@/components/Demo/CloseCallback/CloseCallback.vue'
 import DemoAsyncApply from '@/components/Demo/AsyncApply/AsyncApply.vue'
 import DemoError from '@/components/Demo/Error/Error.vue'
@@ -43,6 +44,11 @@ export default new Router({
       path: '/inject-custom-component',
       name: 'inject-custom-component',
       component: DemoCustomComponent,
+    },
+    {
+      path: '/custom-component-in-footer',
+      name: 'custom-component-in-footer',
+      component: DemoCustomComponentInFooter,
     },
     {
       path: '/close-callback',

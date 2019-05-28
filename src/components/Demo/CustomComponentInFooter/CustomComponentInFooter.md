@@ -8,7 +8,5 @@
 ### Events
 
 - close: Close popup.
-- updateData: Update data of popup, the following is arguments.
-  - data(argument1): Any, data of popup, you can get this data in apply callback.
 - setLoader: Set loader status, the following is arguments.
   - status(argument1): Boolean, loader status
