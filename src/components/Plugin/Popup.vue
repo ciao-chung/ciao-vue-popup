@@ -109,4 +109,5 @@ export default {
 
 <style src="vue2-animate/dist/vue2-animate.min.css"></style>
 <style src="@/assets/popup.sass" lang="sass" type="text/sass"></style>
+<style src="@/assets/v-popover.scss" lang="scss" type="text/scss"></style>
 <style lang="sass" type="text/sass"></style>

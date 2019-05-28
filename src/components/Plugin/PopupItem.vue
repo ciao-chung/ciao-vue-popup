@@ -4,8 +4,8 @@
     @keyup.esc.stop="close(true)"
     :style="popupItemStyle">
     <div ciao-vue-popup="header">
-      <div class="help" v-if="item.help">
-        <a :title="item.help">&#10067;</a>
+      <div class="help" v-if="item.help" v-tooltip="helpTooltipConfig">
+        &#10067;
       </div>
 
       <div class="title">
@@ -140,6 +140,13 @@ export default {
     },
   },
   computed: {
+    helpTooltipConfig() {
+      return {
+        content: this.item.help,
+        hideOnTargetClick: false,
+        autoHide: false,
+      }
+    },
     applyButtonExtraClass() {
       if(!this.defaultConfig) return null
       if(!this.defaultConfig.apply) return null
