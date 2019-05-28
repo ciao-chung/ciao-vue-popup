@@ -1,57 +1,13 @@
-### Example
+### Props
 
-**Script**
+- popupConfig: Object, the popup object which you pass to **append** method.
+- defaultConfig: Object, default config object.
+- error: Any, popup error, see more in **Error Page**.
 
-```javascript
-import foobarComponent from '@/components/Demo/CustomComponent/foobar.vue'
-export default {
-  methods: {
-    popup() {
-      this.$popup('append', {
-        component: foobarComponent,
-      })
-    },
-  },
-}
-```
+### Events
 
-**foobar.vue**
-
-> You can use popupConfig in props to get popup object which you pass to **append** method.
-
-```html
-<template>
-  <div :style="{ width: level*20+'vw'}">
-    <h3>foobar level{{level}}</h3>
-
-    <button class="btn btn-sm btn-dark" @click="popup">
-      popup
-    </button>
-  </div>
-</template>
-
-<script lang="babel" type="text/babel">
-import foobarComponent from '@/components/Demo/CustomComponent/foobar.vue'
-export default {
-  props: {
-    popupConfig: {
-      type: Object,
-    },
-  },
-  methods: {
-    popup() {
-      this.$popup('append', {
-        component: foobarComponent,
-        level: this.level+1
-      })
-    },
-  },
-  computed: {
-    level() {
-      if(!this.popupConfig.level) return 1
-      return this.popupConfig.level
-    },
-  },
-}
-</script>
-```
+- close: Close popup.
+- updateData: Update data of popup, the following is arguments.
+  - data(argument1): Any, data of popup, you can get this data in apply callback.
+- setLoader: Set loader status, the following is arguments.
+  - status(argument1): Boolean, loader status

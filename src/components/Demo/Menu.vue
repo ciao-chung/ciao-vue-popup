@@ -66,7 +66,9 @@ export default {
         },
         {
           label: 'Error',
-          anchor: 'error',
+          route: {
+            name: 'error',
+          },
         },
       ],
     }

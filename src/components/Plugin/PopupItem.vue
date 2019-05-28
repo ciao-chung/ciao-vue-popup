@@ -18,12 +18,14 @@
 
     <div ciao-vue-popup="body" :empty="isEmptyBody">
       <component
+        @close="close"
         @setLoader="setLoader"
         @updateData="updateData"
         :defaultConfig="defaultConfig"
         :is="getComponent(item)"
         :popupConfig="item"
         :ciao-vue-popup-type="item.type"
+        :error="error"
         :key="'ciao-vue-popup-'+item.uid">
       </component>
     </div>
@@ -59,7 +61,11 @@ export default {
       autoCloseTimeout: null,
       data: null,
       loading: false,
+      error: null,
     }
+  },
+  beforeDestroy() {
+    clearTimeout(this.autoCloseTimeout)
   },
   mounted() {
     this.init()
@@ -117,13 +123,15 @@ export default {
       if(this.loading) return
 
       this.setLoader(true)
+      this.error = null
       try {
         await this.applyCallback(this.data)
+        this.close()
       } catch(error) {
         console.error(error)
+        this.error = error
       }
       this.setLoader(false)
-      this.close()
     },
     setLoader(status) {
       this.loading = status

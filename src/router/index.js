@@ -8,6 +8,7 @@ import DemoPrompt from '@/components/Demo/Prompt/Prompt.vue'
 import DemoCustomComponent from '@/components/Demo/CustomComponent/CustomComponent.vue'
 import DemoCloseCallback from '@/components/Demo/CloseCallback/CloseCallback.vue'
 import DemoAsyncApply from '@/components/Demo/AsyncApply/AsyncApply.vue'
+import DemoError from '@/components/Demo/Error/Error.vue'
 
 Vue.use(Router)
 
@@ -52,6 +53,11 @@ export default new Router({
       path: '/async-apply',
       name: 'async-apply',
       component: DemoAsyncApply,
+    },
+    {
+      path: '/error',
+      name: 'error',
+      component: DemoError,
     },
   ]
 })

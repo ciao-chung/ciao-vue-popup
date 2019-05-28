@@ -1,6 +1,6 @@
 <template>
-  <div :style="{ width: level*20+'vw'}">
-    <h3>foobar level{{level}}</h3>
+  <div :style="{ width: level*20+'vw'}" foobar>
+    <h4>foobar level{{level}}</h4>
 
     <button class="btn btn-sm btn-dark" @click="popup">
       popup
@@ -9,7 +9,7 @@
 </template>
 
 <script lang="babel" type="text/babel">
-import foobarComponent from '@/components/Demo/CustomComponent/foobar.vue'
+import ComponentStack from '@/components/Demo/CustomComponent/ComponentStack.vue'
 export default {
   props: {
     popupConfig: {
@@ -19,7 +19,7 @@ export default {
   methods: {
     popup() {
       this.$popup('append', {
-        component: foobarComponent,
+        component: ComponentStack,
         level: this.level+1
       })
     },
@@ -32,3 +32,8 @@ export default {
   },
 }
 </script>
+
+<style lang="sass" type="text/sass" scoped>
+div[foobar]
+  padding: 10px 20px
+</style>
