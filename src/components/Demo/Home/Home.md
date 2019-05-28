@@ -16,6 +16,10 @@ yarn add ciao-vue-popup
 </template>
 
 <script>
+import Vue from 'vue'
+import CiaoVuePopup from 'ciao-vue-popup'
+Vue.use(CiaoVuePopup)
+
 export default {
   name: 'App',
   data() {
