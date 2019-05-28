@@ -70,7 +70,7 @@ export default {
     help() {
       this.$popup('append', {
         content: 'help',
-        help: 'This is help\nThis is help',
+        help: 'This is help<br> This is help',
       })
     },
     autoClose() {
