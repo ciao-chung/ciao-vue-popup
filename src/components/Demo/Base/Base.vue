@@ -40,6 +40,7 @@
       <h1>Without shadow</h1>
 
       <div class="markdown-container">
+        <ExampleWithoutShadow></ExampleWithoutShadow>
       </div>
 
       <button class="btn btn-success btn-sm" @click="withoutShadow">
@@ -66,6 +67,7 @@
 import ExampleString from '@/components/Demo/Base/String.md'
 import ExampleTitleAndContent from '@/components/Demo/Base/TitleAndContent.md'
 import ExampleHelp from '@/components/Demo/Base/Help.md'
+import ExampleWithoutShadow from '@/components/Demo/Base/WithoutShadow.md'
 import ExampleAutoClose from '@/components/Demo/Base/AutoClose.md'
 export default {
   methods: {
@@ -102,6 +104,7 @@ export default {
     ExampleString,
     ExampleTitleAndContent,
     ExampleHelp,
+    ExampleWithoutShadow,
     ExampleAutoClose,
   },
 }
