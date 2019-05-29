@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="content" v-html="popupConfig.content"></div>
+    <div ciao-vue-popup="content" v-html="popupConfig.content"></div>
 
     <div class="input-container">
       <input type="text"

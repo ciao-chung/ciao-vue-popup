@@ -1,6 +1,6 @@
 {
   "name": "ciao-vue-popup",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A vue popup plugin",
   "main": "dist/ciao-vue-popup.js",
   "repository": "https://github.com/ciao-chung/ciao-vue-popup",

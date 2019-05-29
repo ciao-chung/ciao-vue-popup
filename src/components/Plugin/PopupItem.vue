@@ -5,11 +5,11 @@
     :transparent="item.shadow == false"
     :style="popupItemStyle">
     <div ciao-vue-popup="header">
-      <div class="help" v-if="item.help" v-tooltip="helpTooltipConfig">
+      <div ciao-vue-popup="help" v-if="item.help" v-tooltip="helpTooltipConfig">
         &#10067;
       </div>
 
-      <div class="title">
+      <div ciao-vue-popup="title">
         <span v-show="title">{{title}}</span>
         <Loader v-if="loading"></Loader>
       </div>
@@ -166,9 +166,9 @@ export default {
       }
     },
     applyButtonExtraClass() {
-      if(!this.defaultConfig) return null
-      if(!this.defaultConfig.apply) return null
-      return this.defaultConfig.apply.extraClass
+      if(this.item.apply && this.item.apply.extraClass) return this.item.apply.extraClass
+      if(this.defaultConfig.apply && this.defaultConfig.apply.extraClass) return this.defaultConfig.apply.extraClass
+      return null
     },
     disableApply() {
       if(this.loading == true) return true

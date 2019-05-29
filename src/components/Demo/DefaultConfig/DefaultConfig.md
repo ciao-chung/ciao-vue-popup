@@ -40,6 +40,15 @@ Set default custom classes of prompt input
 
 <hr>
 
+#### apply.label
+
+**Type: String**
+
+Set default label of apply button(default is **Apply**)
+
+<hr>
+
+
 #### apply.extraClass
 
 **Type: String**
