@@ -27,7 +27,7 @@
         :defaultConfig="defaultConfig"
         :is="getComponent(item)"
         :popupConfig="item"
-        :ciao-vue-popup-type="item.type"
+        :ciao-vue-popup-type="item.type || 'custom'"
         :error="error"
         :key="'ciao-vue-popup-'+item.uid">
       </component>
