@@ -27,7 +27,7 @@
         :defaultConfig="defaultConfig"
         :is="getComponent(item)"
         :popupConfig="item"
-        :ciao-vue-popup-type="item.type || 'custom'"
+        :ciao-vue-popup-type="getType(item)"
         :error="error"
         :key="'ciao-vue-popup-'+item.uid">
       </component>
@@ -114,6 +114,11 @@ export default {
       const getComponent = !!this.$options.components[`item-${item.type}`]
       if(!getComponent) return null
       return `item-${item.type}`
+    },
+    getType(item) {
+      if(item.component) return 'custom'
+      if(!item.type) return 'text'
+      return item.type
     },
     close(isCancel = false) {
       this.$emit('close', this.item.uid)
