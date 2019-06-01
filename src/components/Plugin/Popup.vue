@@ -4,8 +4,9 @@
       <transition-group name="fade" ciao-vue-popup="item-container" tag="div">
         <PopupItem ciao-vue-popup="item"
           @close="close"
-          v-for="item in items"
+          v-for="item, index in items"
           :defaultConfig="defaultConfig"
+          :index="index"
           :item="item"
           :key="'ciao-vue-popup-'+item.uid">
         </PopupItem>

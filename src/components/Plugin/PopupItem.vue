@@ -19,7 +19,7 @@
       </div>
     </div>
 
-    <div ciao-vue-popup="body" :empty="isEmptyBody">
+    <div ciao-vue-popup="body" :empty="isEmptyBody" :style="{ maxHeight: bodyMaxHeight }">
       <component
         @close="close"
         @setLoader="setLoader"
@@ -64,6 +64,9 @@ export default {
   props: {
     item: {
       type: Object,
+    },
+    index: {
+      type: Number,
     },
     defaultConfig: {
       type: Object,
@@ -158,6 +161,10 @@ export default {
     },
   },
   computed: {
+    bodyMaxHeight() {
+      const top = (this.index+1)*30
+      return `calc(80vh - ${top}px)`
+    },
     applyLabel() {
       if(this.item.apply && this.item.apply.label) return this.item.apply.label
       if(this.defaultConfig.apply && this.defaultConfig.apply.label) return this.defaultConfig.apply.label
