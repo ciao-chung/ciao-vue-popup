@@ -143,6 +143,7 @@ export default {
     },
     async apply() {
       if(!this.applyCallback) return
+      if(this.disableApply) return
       if(this.loading) return
 
       this.setLoader(true)
@@ -184,7 +185,14 @@ export default {
     },
     disableApply() {
       if(this.loading == true) return true
+      if(this.applyDisableCallback) return this.applyDisableCallback(this.data)
       return false
+    },
+    applyDisableCallback() {
+      if(!this.item) return null
+      if(!this.item.apply) return null
+      if(typeof this.item.apply.disable != 'function') return null
+      return this.item.apply.disable
     },
     applyCallback() {
       if(!this.item) return null

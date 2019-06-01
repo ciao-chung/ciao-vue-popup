@@ -26,6 +26,7 @@ export default {
         placeholder: 'Your name',
         apply: {
           callback: this.apply,
+          disable: data => !data
         },
       })
     },
