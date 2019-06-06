@@ -47,6 +47,7 @@
         @close="close"
         @setLoader="setLoader"
         v-for="customComponent, key in footerCustomComponents"
+        :data="data"
         :key="'component-'+key"
         :is="customComponent"></component>
     </div>
