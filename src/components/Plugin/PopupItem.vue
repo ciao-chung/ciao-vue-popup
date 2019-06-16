@@ -228,7 +228,11 @@ export default {
       return this.defaultConfig.title
     },
     minWidth() {
-      if(!this.item.minWidth) return '20vw'
+      const deviceWidth = $(window).width()
+      if(!this.item.minWidth) {
+        if(deviceWidth < 500) return '60vw'
+        return '20vw'
+      }
       return this.item.minWidth
     },
     footerCustomComponents() {
