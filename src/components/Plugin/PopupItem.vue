@@ -126,7 +126,7 @@ export default {
     },
     close(isCancel = false) {
       this.$emit('close', this.item.uid)
-      if(typeof this.item.closeCallback == 'function') this.item.closeCallback()
+      if(typeof this.item.closeCallback == 'function') this.item.closeCallback(isCancel, this.data)
     },
     autoClose() {
       clearTimeout(this.autoCloseTimeout)

@@ -21,7 +21,7 @@ export default {
     popup() {
       this.$popup('append', {
         content: 'foobar',
-        closeCallback: () => alert('On Close')
+        closeCallback: (isCancel, data) => console.warn('On Close', isCancel, data)
       })
     },
   },
