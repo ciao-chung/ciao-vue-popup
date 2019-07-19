@@ -7,8 +7,12 @@
         <ExamplePrompt></ExamplePrompt>
       </div>
 
-      <button class="btn btn-success btn-sm" @click="confirm">
+      <button class="btn btn-success btn-sm" @click="prompt(0)">
         popup
+      </button>
+
+      <button class="btn btn-success btn-sm" @click="prompt(1)">
+        textarea
       </button>
     </div>
   </div>
@@ -18,9 +22,10 @@
 import ExamplePrompt from '@/components/Demo/Prompt/Prompt.md'
 export default {
   methods: {
-    confirm() {
+    prompt(textarea = false) {
       this.$popup('append', {
         type: 'prompt',
+        textarea,
         content: 'Enter your name',
         defaultValue: 'Your name',
         placeholder: 'Your name',

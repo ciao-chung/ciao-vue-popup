@@ -4,9 +4,17 @@
 
     <div class="input-container">
       <input type="text"
+        v-if="!isTextarea"
         :class="inputCustomClass"
         :placeholder="popupConfig.placeholder"
         v-model="localData">
+
+      <textarea
+        @keyup.enter.stop
+        v-if="isTextarea"
+        :class="inputCustomClass"
+        :placeholder="popupConfig.placeholder"
+        v-model="localData"></textarea>
     </div>
   </div>
 </template>
@@ -33,6 +41,9 @@ export default {
     },
   },
   computed: {
+    isTextarea() {
+      return this.popupConfig.textarea == true
+    },
     inputCustomClass() {
       if(this.popupConfig.inputCustomClass) return this.popupConfig.inputCustomClass
       if(this.defaultPromptCustomClass) return this.defaultPromptCustomClass
@@ -58,4 +69,6 @@ export default {
 <style lang="sass" type="text/sass" scoped>
 .input-container
   margin-top: 15px
+  textarea
+    min-height: 100px
 </style>
