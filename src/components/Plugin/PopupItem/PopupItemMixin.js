@@ -9,6 +9,9 @@ export default {
     data: {
       default: () => null,
     },
+    error: {
+      default: () => null,
+    }
   },
   data() {
     return {

@@ -2,6 +2,8 @@
   <div>
     <div ciao-vue-popup="content" v-html="popupConfig.content"></div>
 
+    <div class="error" v-if="error">{{error}}</div>
+
     <div class="input-container">
       <input type="text"
         v-if="!isTextarea"

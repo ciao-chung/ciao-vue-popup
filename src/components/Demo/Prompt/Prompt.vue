@@ -14,6 +14,10 @@
       <button class="btn btn-success btn-sm" @click="prompt(1)">
         textarea
       </button>
+
+      <button class="btn btn-success btn-sm" @click="testError">
+        error
+      </button>
     </div>
   </div>
 </template>
@@ -38,6 +42,16 @@ export default {
     apply(data) {
       alert(`apply: ${data}`)
       console.warn('apply', data)
+    },
+    testError() {
+      this.$popup('append', {
+        type: 'prompt',
+        apply: {
+          callback: () => {
+            throw 'This is error'
+          },
+        },
+      })
     },
   },
   components: {
