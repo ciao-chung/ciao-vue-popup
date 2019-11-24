@@ -6,7 +6,7 @@
     :style="popupItemStyle">
     <div ciao-vue-popup="header">
       <div ciao-vue-popup="help" v-if="item.help" v-tooltip="helpTooltipConfig">
-        &#10067;
+        <i class="fa fa-question-circle"></i>
       </div>
 
       <div ciao-vue-popup="title">
@@ -15,7 +15,13 @@
       </div>
 
       <div class="action">
-        <span class="close-icon" @click="close(true)">&#10005;</span>
+        <span class="drag-handler" ciao-vue-popup="drag-handler" v-if="draggable">
+          <i class="fa fa-arrows"></i>
+        </span>
+
+        <span class="close-icon" @click="close(true)">
+          <i class="fa fa-close"></i>
+        </span>
       </div>
     </div>
 
@@ -60,6 +66,7 @@ import Loader from '@/components/Plugin/Loader.vue'
 import ItemText from './PopupItem/Text'
 import ItemConfirm from './PopupItem/Confirm'
 import ItemPrompt from './PopupItem/Prompt'
+import draggable from 'jquery-ui/ui/widgets/draggable.js'
 export default {
   mixins: [ScrollTop],
   props: {
@@ -79,6 +86,7 @@ export default {
       data: null,
       loading: false,
       error: null,
+      $dragHandler: null,
     }
   },
   beforeDestroy() {
@@ -93,11 +101,20 @@ export default {
       this.scrollStop()
       $(this.$el).focus()
       this.setupItemStyle()
+      this.setupDraggble()
       $(window).resize(() => {
         this.setupItemStyle()
       })
 
       if(this.item.autoClose) this.autoClose()
+    },
+    setupDraggble() {
+      if(!this.draggable) return
+      this.$dragHandler = $(this.$el)
+      this.$dragHandler.draggable({
+        containment: 'div[ciao-vue-popup="main"]',
+        handle: '*[ciao-vue-popup="drag-handler"]',
+      })
     },
     setupItemStyle() {
       this.$nextTick(() => {
@@ -163,6 +180,11 @@ export default {
     },
   },
   computed: {
+    draggable() {
+      if(this.item.draggable == true) return true
+      if(typeof this.item.draggable == 'function') return this.item.draggable()
+      return this.defaultConfig.draggable
+    },
     bodyMaxHeight() {
       const top = (this.index+1)*30
       return `calc(80vh - ${top}px)`

@@ -85,6 +85,7 @@ export default {
       let result = {
         defaultTitle: null,
         applyOnEnter: true,
+        draggable: true,
         ...config,
       }
       return result
@@ -121,4 +122,6 @@ export default {
 <style src="vue2-animate/dist/vue2-animate.min.css"></style>
 <style src="@/assets/popup.sass" lang="sass" type="text/sass"></style>
 <style src="@/assets/v-popover.scss" lang="scss" type="text/scss"></style>
+<style src="jquery-ui/themes/base/all.css"></style>
+<style src="jquery-ui/themes/base/draggable.css"></style>
 <style lang="sass" type="text/sass"></style>

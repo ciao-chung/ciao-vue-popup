@@ -49,6 +49,8 @@ export default {
 
 <style src="bootstrap/dist/css/bootstrap.min.css"></style>
 <style src="prismjs/themes/prism.css"></style>
+<style src="@fortawesome/fontawesome-free/css/all.css"></style>
+<style src="@fortawesome/fontawesome-free/css/v4-shims.css"></style>
 <style lang="sass" type="text/sass">
 div#app
   padding: 0

@@ -11,6 +11,7 @@ import DemoCloseCallback from '@/components/Demo/CloseCallback/CloseCallback.vue
 import DemoAsyncApply from '@/components/Demo/AsyncApply/AsyncApply.vue'
 import DemoError from '@/components/Demo/Error/Error.vue'
 import DemoClose from '@/components/Demo/Close/Close.vue'
+import DemoDraggable from '@/components/Demo/Draggable/Draggable.vue'
 
 Vue.use(Router)
 
@@ -52,14 +53,19 @@ export default new Router({
       component: DemoCustomComponentInFooter,
     },
     {
-      path: '/close-callback',
-      name: 'close-callback',
-      component: DemoCloseCallback,
-    },
-    {
       path: '/async-apply',
       name: 'async-apply',
       component: DemoAsyncApply,
+    },
+    {
+      path: '/draggable',
+      name: 'draggable',
+      component: DemoDraggable,
+    },
+    {
+      path: '/close-callback',
+      name: 'close-callback',
+      component: DemoCloseCallback,
     },
     {
       path: '/error',
