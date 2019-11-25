@@ -1,3 +1,26 @@
+### Usage
+
+use **footer.components** options pass **Vue Components**
+
+### Example
+
+```javascript
+import CustomButton from '@/components/Demo/CustomComponentInFooter/CustomButton.vue'
+export default {
+  methods: {
+    popup() {
+      this.$popup('append', {
+        footer: {
+          components: {
+            CustomButton,
+          },
+        },
+      })
+    }
+  },
+}
+```
+
 ### Props
 
 - popupConfig: Object, the popup object which you pass to **append** method.
