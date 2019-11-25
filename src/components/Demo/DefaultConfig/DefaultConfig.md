@@ -16,14 +16,6 @@ Setup z-index of first popup(default value is **9000**).
 
 <hr>
 
-#### draggble
-
-**Type: Boolean**
-
-Make popup draggble(default value is true).
-
-<hr>
-
 #### minWidth
 
 **Type: String** 

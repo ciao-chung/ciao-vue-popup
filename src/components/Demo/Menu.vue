@@ -82,12 +82,6 @@ export default {
             name: 'close',
           },
         },
-        {
-          label: 'Draggable',
-          route: {
-            name: 'draggable',
-          },
-        },
       ],
     }
   },
