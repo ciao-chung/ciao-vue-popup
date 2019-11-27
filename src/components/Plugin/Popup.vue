@@ -1,6 +1,9 @@
 <template>
   <transition name="fade" mode="out-in">
-    <div ciao-vue-popup="main" @click.stop v-if="hasAnyPopup" :style="popupStyle">
+    <div ciao-vue-popup="main" @click.stop
+      v-if="hasAnyPopup"
+      :style="popupStyle"
+      :transparent="!hasAnyShadow">
       <transition-group name="fade" ciao-vue-popup="item-container" tag="div">
         <PopupItem ciao-vue-popup="item"
           @close="close"
@@ -111,6 +114,12 @@ export default {
     hasAnyPopup() {
       return this.items.length > 0
     },
+    hasAnyShadow() {
+      for(const item of this.items) {
+        if(item.shadow != false) return true
+      }
+      return false
+    }
   },
   components: {
     PopupItem,

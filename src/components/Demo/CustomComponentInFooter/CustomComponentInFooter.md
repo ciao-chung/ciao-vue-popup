@@ -2,6 +2,19 @@
 
 use **footer.components** options pass **Vue Components**
 
+### Props
+
+- popupConfig: Object, the popup object which you pass to **append** method.
+- defaultConfig: Object, default config object.
+- error: Any, popup error, see more in **Error Page**.
+- data: Any, popup data.
+
+### Events
+
+- close: Close popup.
+- setLoader: Set loader status, the following is arguments.
+  - status(argument1): Boolean, loader status
+  
 ### Example
 
 ```javascript
@@ -20,16 +33,3 @@ export default {
   },
 }
 ```
-
-### Props
-
-- popupConfig: Object, the popup object which you pass to **append** method.
-- defaultConfig: Object, default config object.
-- error: Any, popup error, see more in **Error Page**.
-- data: Any, popup data.
-
-### Events
-
-- close: Close popup.
-- setLoader: Set loader status, the following is arguments.
-  - status(argument1): Boolean, loader status

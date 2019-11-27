@@ -19,6 +19,8 @@ div[ciao-vue-popup="main"]
   height: 100vh
   overflow: auto
   font-family: monospace
+  &[transparent]
+    pointer-events: none
   div[ciao-vue-popup="item-container"]
     position: fixed
     top: 20px
@@ -36,7 +38,7 @@ div[ciao-vue-popup="main"]
       &:focus
         outline: none
       &[transparent]
-        box-shadow: none
+        box-shadow: 3px 3px 3px darken($light-gray, 20%)
       @media (max-width: 767px)
         max-width: $mobile-max-width
       &:last-of-type

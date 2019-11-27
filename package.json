@@ -11,6 +11,7 @@
     "plugin-publish": "node build/publish.js"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "5",
     "bootstrap": "^4.3.1",
     "jquery": "^3.4.1",
     "jquery-mousewheel": "3.1.13",

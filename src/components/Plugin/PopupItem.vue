@@ -1,5 +1,5 @@
 <template>
-  <div tabindex="0" ciao-vue-popup="item"
+  <div tabindex="0" ciao-vue-popup="item" :index="index"
     @keyup.enter.stop="onPopupItemKeyUpEnter"
     @keyup.esc.stop="close(true)"
     :transparent="item.shadow == false"
@@ -15,6 +15,16 @@
       </div>
 
       <div class="action">
+        <component
+          v-if="headerCustomComponents"
+          @close="close"
+          @setLoader="setLoader"
+          v-for="customComponent, key in headerCustomComponents"
+          :data="data"
+          :key="'component-'+key"
+          :index="index"
+          :is="customComponent"></component>
+
         <span class="close-icon" @click="close(true)">&#10005;</span>
       </div>
     </div>
@@ -234,6 +244,12 @@ export default {
         return '20vw'
       }
       return this.item.minWidth
+    },
+    headerCustomComponents() {
+      if(!this.defaultConfig) return null
+      if(!this.defaultConfig.header) return null
+      if(!Array.isArray(this.defaultConfig.header.components)) return null
+      return this.defaultConfig.header.components
     },
     footerCustomComponents() {
       if(!this.item) return null

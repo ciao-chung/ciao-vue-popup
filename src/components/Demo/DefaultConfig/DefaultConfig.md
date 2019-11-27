@@ -56,3 +56,22 @@ Set default label of apply button(default is **Apply**)
 Set default custom classes of apply button
 
 <hr>
+
+### header.components
+
+**Type: Array(Vue components)**
+
+**Props**
+
+- popupConfig: Object, the popup object which you pass to **append** method.
+- defaultConfig: Object, default config object.
+- error: Any, popup error, see more in **Error Page**.
+- data: Any, popup data.
+
+**Events**
+
+- close: Close popup.
+- setLoader: Set loader status, the following is arguments.
+  - status(argument1): Boolean, loader status
+
+<hr>
