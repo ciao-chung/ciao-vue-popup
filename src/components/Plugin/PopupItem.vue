@@ -82,6 +82,9 @@ export default {
     defaultConfig: {
       type: Object,
     },
+    zIndex: {
+      type: Number,
+    },
   },
   data() {
     return {
@@ -214,6 +217,7 @@ export default {
     popupItemStyle() {
       return {
         minWidth: this.minWidth,
+        zIndex: this.zIndex,
       }
     },
     isEmptyBody() {

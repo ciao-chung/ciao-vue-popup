@@ -11,6 +11,7 @@
           :defaultConfig="defaultConfig"
           :index="index"
           :item="item"
+          :zIndex="zIndex+index+1"
           :key="'ciao-vue-popup-'+item.uid">
         </PopupItem>
       </transition-group>
